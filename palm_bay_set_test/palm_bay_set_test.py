@@ -20,11 +20,8 @@ except Exception as e:
 
 
 
-df_jenny_sql = pd.read_sql("select * from auto.test_summary_reporting where collection_set_id = 12319;",
+df_palm_bay_sql = pd.read_sql("select * from auto.vi_test_summary_unified_reporting tsr join md2.test_types tt using (test_type_id) where tsr.collection_set_id = 12638;",
                            con=os.getenv('RSR_SVC_CONN'))
 
-second_df = pd.read_sql("select * from auto.vi_test_summary_unified_reporting tsr join md2.test_types tt using (test_type_id) where tsr.collection_set_id = 12638;",
-                           con=os.getenv('RSR_SVC_CONN'))
-print(df_jenny_sql)
 
-# print(second_df)
+print(df_palm_bay_sql)
